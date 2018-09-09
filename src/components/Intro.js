@@ -3,12 +3,12 @@ import Chilling from "../images/chilling.svg"
 
 const Intro = () => {
   return (
-    <section className="text-center flex flex-col flex-1 md:justify-center max-w-xl mx-auto px-4 pt-8  w-full">
+    <section className="text-center flex flex-col flex-1 md:justify-center max-w-3xl mx-auto px-4 pt-8  w-full">
       <h2 className="text-3xl mt-12 mb-12">
         IT skal bare virke. Det hjælper vi dig med.
       </h2>
       <div className="container flex">
-        <p className="text-left leading-loose w-3/5 mt-4 text-xl">
+        <p className="text-left leading-loose w-3/5 mt-12 text-xl">
           Alle bruger vi dagligt både computer, smartphones og tablets. Vi
           bruger dem til skole, arbejde, fornøjelse, træning, økonomi og socialt
           samvær. Derfor er det også vigtigt, at teknikken bare virker. Gennem
