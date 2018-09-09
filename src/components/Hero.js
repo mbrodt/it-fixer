@@ -8,7 +8,7 @@ const Hero = () => {
     <div
       className="bg-grey-darkest bg-center max-w-screen-lg"
       style={{
-        backgroundImage: `url(${HeroPattern}`,
+        backgroundImage: "url(" + HeroPattern + ")",
         backgroundBlendMode: "multiply"
       }}
     >
