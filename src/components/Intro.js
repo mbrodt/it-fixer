@@ -19,7 +19,9 @@ const Intro = () => {
         når din computer er blevet langsom eller du ikke kan hitte rundt i den
         nye iPhone. */}
         </p>
-        <img src={Chilling} className="block mx-auto w-2/5 px-4" />
+        <div className="block mx-auto w-2/5 px-4">
+          <img src={Chilling} />
+        </div>
       </div>
     </section>
   )

@@ -24,6 +24,14 @@
   @apply w-48 text-white py-4 px-4 rounded;
 }
 
+.input-field {
+  @apply w-3/4 bg-grey-lighter appearance-none border-2 rounded py-2 px-4 text-indigo-darkest text-2xl leading-tight;
+}
+
+.input-field:focus {
+  @apply border-indigo outline-none;
+}
+
 /**
   * Here you would add any of your custom component classes; stuff that you'd
   * want loaded *before* the utilities so that the utilities could still

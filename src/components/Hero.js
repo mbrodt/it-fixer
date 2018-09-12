@@ -27,9 +27,11 @@ const Hero = () => {
           <button className="btn bg-indigo hover:bg-indigo-dark mr-4">
             Aftal nærmere
           </button>
-          <button className="btn border border-indigo hover:bg-indigo">
-            Hvad kan i tilbyde?
-          </button>
+          <a href="#services">
+            <button className="btn border border-indigo hover:bg-indigo">
+              Hvad kan i tilbyde?
+            </button>
+          </a>
         </div>
       </div>
     </div>
