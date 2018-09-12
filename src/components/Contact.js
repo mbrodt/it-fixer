@@ -15,6 +15,13 @@ export class Contact extends React.Component {
     }
   }
 
+  handleChange = e => {
+    let name = [e.target.name]
+    let val = e.target.value
+    console.log("name, val", name, val)
+    this.setState({ [e.target.name]: e.target.value })
+  }
+
   toggleCheck = () => {
     this.setState({
       doCall: !this.state.doCall
@@ -56,6 +63,7 @@ export class Contact extends React.Component {
             name="name"
             type="text"
             placeholder="Navn"
+            onChange={this.handleChange}
           />
           <input
             className="input-field mb-4"
@@ -63,6 +71,7 @@ export class Contact extends React.Component {
             name="details"
             type="text"
             placeholder="Email / Tlf"
+            onChange={this.handleChange}
           />
           <textarea
             className="input-field mb-4"
@@ -70,12 +79,14 @@ export class Contact extends React.Component {
             name="message"
             type="textarea"
             placeholder="Besked"
+            onChange={this.handleChange}
           />
           <div className="mb-6">
             <label className="block text-grey font-bold">
               <input
                 className="mr-2 leading-tight"
                 id="call"
+                name="call"
                 type="checkbox"
                 onChange={this.toggleCheck}
                 checked={this.state.doCall}
