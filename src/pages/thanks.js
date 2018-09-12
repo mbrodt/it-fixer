@@ -1,6 +1,10 @@
 import React from "react"
-import Link from "gatsby-link"
+import { navigateTo } from "gatsby-link"
 import cautiousDog from "../images/cautious-dog.svg"
+
+const goBack = () => {
+  navigateTo("/")
+}
 
 const Thanks = () => (
   <div className="flex flex-col md:flex-row items-center">
@@ -9,6 +13,12 @@ const Thanks = () => (
         Tak for din besked! Vi vender tilbage snarest muligt for at aftale næste
         skridt.
       </p>
+      <button
+        onClick={goBack}
+        className="btn bg-indigo hover:bg-indigo-dark mr-4"
+      >
+        Gå til startside
+      </button>
     </div>
 
     <div className="w-2/3 md:w-1/3">

@@ -16,9 +16,6 @@ export class Contact extends React.Component {
   }
 
   handleChange = e => {
-    let name = [e.target.name]
-    let val = e.target.value
-    console.log("name, val", name, val)
     this.setState({ [e.target.name]: e.target.value })
   }
 
@@ -29,13 +26,17 @@ export class Contact extends React.Component {
   }
 
   handleSubmit = e => {
+    if (this.state.doCall) {
+      this.setState({
+        doCall: "Yes"
+      })
+    }
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state })
     })
       .then(() => {
-        console.log("submitted!")
         navigateTo("/thanks/")
       })
       .catch(error => alert(error))
