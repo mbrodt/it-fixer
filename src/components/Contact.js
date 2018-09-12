@@ -11,7 +11,7 @@ export class Contact extends React.Component {
   constructor() {
     super()
     this.state = {
-      doCall: false
+      call: false
     }
   }
 
@@ -21,16 +21,16 @@ export class Contact extends React.Component {
 
   toggleCheck = () => {
     this.setState({
-      doCall: !this.state.doCall
+      call: !this.state.call
     })
   }
 
   handleSubmit = e => {
-    if (this.state.doCall) {
-      this.setState({
-        doCall: "Yes"
-      })
-    }
+    // if (this.state.doCall) {
+    //   this.setState({
+    //     doCall: "Yes"
+    //   })
+    // }
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -90,7 +90,7 @@ export class Contact extends React.Component {
                 name="call"
                 type="checkbox"
                 onChange={this.toggleCheck}
-                checked={this.state.doCall}
+                checked={this.state.call}
               />
               <span className="text-xl text-grey-darkest">
                 Jeg vil gerne ringes op
