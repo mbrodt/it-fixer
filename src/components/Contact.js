@@ -79,7 +79,7 @@ export class Contact extends React.Component {
             onChange={this.handleChange}
           />
           <textarea
-            className="input-field mb-4 text-base sm:text-xl"
+            className="input-field mb-4 h-32 text-base sm:text-xl"
             id="message"
             name="message"
             type="textarea"
