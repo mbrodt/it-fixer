@@ -24,9 +24,11 @@ const Hero = () => {
           <strong className="text-indigo">smartphone.</strong>
         </p>
         <div className="mt-6 flex items-center flex-col sm:flex-row">
-          <button className="btn bg-indigo hover:bg-indigo-dark mb-4 sm:mb-0 w-full sm:w-48  mr-0 sm:mr-4">
+        <a href="#contact" className="w-full sm:w-48 mb-4 sm:mb-0   mr-0 sm:mr-4">
+          <button className="btn bg-indigo hover:bg-indigo-dark w-full ">
             Aftal nærmere
           </button>
+          </a>
           <a href="#services" className="w-full sm:w-48 ">
             <button className="btn border border-indigo w-full hover:bg-indigo ">
               Hvad kan i tilbyde?

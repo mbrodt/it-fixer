@@ -11,7 +11,8 @@ export class Contact extends React.Component {
   constructor() {
     super()
     this.state = {
-      call: false
+      call: false,
+      displaySuccess: false
     }
   }
 
@@ -29,10 +30,18 @@ export class Contact extends React.Component {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state })
+      body: encode({
+        "form-name": "contact",
+        name: this.state.name,
+        details: this.state.details,
+        message: this.state.message,
+        call: this.state.call
+      })
     })
       .then(() => {
-        navigateTo("/thanks/")
+        this.setState({
+          displaySuccess: true
+        })
       })
       .catch(error => alert(error))
 
@@ -41,7 +50,7 @@ export class Contact extends React.Component {
 
   render() {
     return (
-      <section className="text-center py-16 bg-white">
+      <section id="contact" className="text-center py-16 bg-white">
         <form
           className="w-5/6 sm:w-3/4 md:w-1/2 lg:w-2/5 shadow-lg mx-auto pb-8 "
           name="contact"
@@ -92,12 +101,21 @@ export class Contact extends React.Component {
               </span>
             </label>
           </div>
-          <button
-            className="shadow bg-indigo hover:bg-indigo-light focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-2xl mb-4"
-            type="submit"
-          >
-            Send
-          </button>
+          {!this.state.displaySuccess && (
+            <button
+              className="shadow bg-indigo hover:bg-indigo-light focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded text-2xl mb-4"
+              type="submit"
+            >
+              Send
+            </button>
+          )}
+
+          {this.state.displaySuccess && (
+            <p className="text-green px-4">
+              Tak for din besked! Vi vender tilbage snarest muligt for at aftale
+              næste skridt.{" "}
+            </p>
+          )}
         </form>
       </section>
     )
