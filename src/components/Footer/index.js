@@ -1,23 +1,17 @@
 import React from "react";
 
 const Footer = () => (
-  <div className="bg-blue">
+  <div className="bg-indigo-darker">
     <div className="flex justify-between max-w-xl mx-auto p-4 md:p-8 text-sm">
       <p className="text-white">
-        Created by{" "}
-        <a
-          href="https://taylorbryant.blog"
-          className="font-bold no-underline text-white"
-        >
-          Taylor Bryant
-        </a>
+        Copyright &copy; IT-Fixer 2018
       </p>
       <p>
         <a
-          href="https://github.com/taylorbryant/gatsby-starter-tailwind"
-          className="font-bold no-underline text-white"
+          href="#"
+          className="no-underline text-white"
         >
-          GitHub
+          Back to top
         </a>
       </p>
     </div>

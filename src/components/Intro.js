@@ -8,7 +8,7 @@ const Intro = () => {
         IT skal bare virke. Det hjælper vi dig med.
       </h2>
       <div className="container flex flex-col lg:flex-row ">
-        <p className="text-left leading-loose w-full lg:w-3/5 text-lg sm:text-xl md:px-8 xl:px-0 xl:mt-16 ">
+        <p className="text-left leading-loose w-full lg:w-3/5 text-lg sm:text-xl sm:px-8 md:px-8 xl:px-0 xl:mt-16 ">
           Alle bruger vi dagligt både computer, smartphones og tablets. Vi
           bruger dem til skole, arbejde, fornøjelse, træning, økonomi og socialt
           samvær. Derfor er det også vigtigt, at teknikken bare virker. Gennem

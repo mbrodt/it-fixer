@@ -663,8 +663,15 @@ table {
   border-radius: .25rem;
 }
 
+.service-item {
+  text-align: left;
+  font-size: 1.125rem;
+  margin-bottom: 1.25rem;
+  margin-right: 1rem;
+}
+
 .input-field {
-  width: 75%;
+  width: 83.33333%;
   background-color: #f1f5f8;
   appearance: none;
   border-width: 2px;
