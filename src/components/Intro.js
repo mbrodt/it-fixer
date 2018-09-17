@@ -20,7 +20,7 @@ const Intro = () => {
         nye iPhone. */}
         </p>
         <div className="block mx-auto w-4/5 md:w-3/5 md:mt-16 mt-8 lg:w-2/5 lg:mt-4 px-4">
-          <img src={Chilling} />
+          <img src={Chilling} alt="Person relaxing on couch with a cat" />
         </div>
       </div>
     </section>

@@ -62,32 +62,38 @@ export class Contact extends React.Component {
         >
           <input type="hidden" name="form-name" value="contact" />
           <h2 className="text-3xl pt-16 mb-8">Kontakt os</h2>
-          <input
-            className="input-field mb-4 text-base sm:text-xl"
-            id="name"
-            name="name"
-            type="text"
-            placeholder="Navn"
-            onChange={this.handleChange}
-          />
-          <input
-            className="input-field mb-4 text-base sm:text-xl"
-            id="details"
-            name="details"
-            type="text"
-            placeholder="Email / Tlf"
-            onChange={this.handleChange}
-          />
-          <textarea
-            className="input-field mb-4 h-32 text-base sm:text-xl"
-            id="message"
-            name="message"
-            type="textarea"
-            placeholder="Besked"
-            onChange={this.handleChange}
-          />
+          <label htmlFor="name">
+            <input
+              className="input-field mb-4 text-base sm:text-xl"
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Navn"
+              onChange={this.handleChange}
+            />
+          </label>
+          <label htmlFor="details">
+            <input
+              className="input-field mb-4 text-base sm:text-xl"
+              id="details"
+              name="details"
+              type="text"
+              placeholder="Email / Tlf"
+              onChange={this.handleChange}
+            />
+          </label>
+          <label htmlFor="message">
+            <textarea
+              className="input-field mb-4 h-32 text-base sm:text-xl"
+              id="message"
+              name="message"
+              type="textarea"
+              placeholder="Besked"
+              onChange={this.handleChange}
+            />
+          </label>
           <div className="mb-6">
-            <label className="">
+            <label htmlFor="call">
               <input
                 className="mr-2 leading-tight text-base sm:text-xl"
                 id="call"

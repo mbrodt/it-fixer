@@ -1,9 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Helmet from "react-helmet"
-
-import Header from "../components/Header"
-import Hero from "../components/Hero"
 import Footer from "../components/Footer"
 import "./index.css"
 import "./custom.css"
@@ -16,12 +13,10 @@ const TemplateWrapper = ({ children }) => (
         { name: "description", content: "Sample" },
         { name: "keywords", content: "sample, something" }
       ]}
-    />
-    {/* <Header /> */}
-    {/* <Hero /> */}
-    {/* <div className="flex flex-col flex-1 md:justify-center max-w-xl mx-auto px-4 py-8 md:p-8 w-full"> */}
+    >
+      <html lang="da" />
+    </Helmet>
     {children()}
-    {/* </div> */}
     <Footer />
   </div>
 )
