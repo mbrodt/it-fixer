@@ -1,10 +1,10 @@
-import React from "react"
-import { navigateTo } from "gatsby-link"
+import React from 'react'
+import { navigateTo } from 'gatsby-link'
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&")
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
 }
 
 export class Contact extends React.Component {
@@ -17,7 +17,8 @@ export class Contact extends React.Component {
   }
 
   handleChange = e => {
-    this.setState({ [e.target.name]: e.target.value })
+    let input = e.target.name
+    this.setState({ [input]: e.target.value }, () => this.validateInput(input))
   }
 
   toggleCheck = () => {
@@ -26,26 +27,57 @@ export class Contact extends React.Component {
     })
   }
 
-  handleSubmit = e => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": "contact",
-        name: this.state.name,
-        details: this.state.details,
-        message: this.state.message,
-        call: this.state.call
-      })
+  validateInput = inputValue => {
+    if (this.state[inputValue]) {
+      this.refs[inputValue].dataset.state = 'valid'
+      return true
+    } else {
+      this.refs[inputValue].dataset.state = 'invalid'
+      return false
+    }
+  }
+
+  validateAll = () => {
+    // get all refs to validate each one individually
+    let keys = Object.keys(this.refs)
+    let validated = keys.map(key => {
+      return this.validateInput(key)
     })
-      .then(() => {
-        this.setState({
-          displaySuccess: true
+    if (validated.every(val => val === true)) {
+      // Every field passed the validation test
+      return true
+    } else {
+      return false
+    }
+  }
+
+  handleSubmit = e => {
+    console.log('in submit')
+    e.preventDefault()
+    let validated = this.validateAll()
+    if (validated) {
+      //submit form
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({
+          'form-name': 'contact',
+          name: this.state.name,
+          details: this.state.details,
+          message: this.state.message,
+          call: this.state.call
         })
       })
-      .catch(error => alert(error))
-
-    e.preventDefault()
+        .then(() => {
+          this.setState({
+            displaySuccess: true
+          })
+        })
+        .catch(error => alert(error))
+    } else {
+      console.log('BAD')
+      return
+    }
   }
 
   render() {
@@ -69,6 +101,7 @@ export class Contact extends React.Component {
               name="name"
               type="text"
               placeholder="Navn"
+              ref="name"
               onChange={this.handleChange}
             />
           </label>
@@ -79,6 +112,7 @@ export class Contact extends React.Component {
               name="details"
               type="text"
               placeholder="Email / Tlf"
+              ref="details"
               onChange={this.handleChange}
             />
           </label>
@@ -89,6 +123,7 @@ export class Contact extends React.Component {
               name="message"
               type="textarea"
               placeholder="Besked"
+              ref="message"
               onChange={this.handleChange}
             />
           </label>
@@ -119,7 +154,7 @@ export class Contact extends React.Component {
           {this.state.displaySuccess && (
             <p className="text-green px-4">
               Tak for din besked! Vi vender tilbage snarest muligt for at aftale
-              næste skridt.{" "}
+              næste skridt.{' '}
             </p>
           )}
         </form>
